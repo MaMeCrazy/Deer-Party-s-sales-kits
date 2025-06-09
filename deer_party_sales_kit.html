@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deer Party 小鹿派对 | Sales Kit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .presentation {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* 封面页 */
+        .cover-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .cover-slide::before {
+            display: none;
+        }
+
+        .deer-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .brand-name {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .qr-placeholder {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 10px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 标题样式 */
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .title-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 内容布局 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .content-section {
+            background: linear-gradient(135deg, #f8f9ff, #fff);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #f0f2ff;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 流程图 */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        /* 对比表格 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #f0f2ff;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9ff;
+        }
+
+        /* 优势卡片 */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .advantage-card {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .advantage-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* 案例展示 */
+        .case-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .case-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .case-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-image {
+            height: 200px;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .case-info {
+            padding: 20px;
+        }
+
+        .case-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .case-details {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* FAQ样式 */
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            background: #f8f9ff;
+        }
+
+        /* 联系方式页面 */
+        .contact-slide {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-slide::before {
+            display: none;
+        }
+
+        .contact-main {
+            margin: 40px 0;
+        }
+
+        .phone-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 30px 0;
+            letter-spacing: 2px;
+        }
+
+        .qr-code-large {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 20px;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .final-message {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+                margin-bottom: 20px;
+            }
+            
+            .brand-name {
+                font-size: 2.5rem;
+            }
+            
+            .slide-title {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide {
+            animation: slideIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- 封面页 -->
+        <div class="slide cover-slide">
+            <div class="deer-icon">🦌</div>
+            <h1 class="brand-name">Deer Party<br>小鹿派对</h1>
+            <p class="slogan">你记得的时刻，我们为你布置</p>
+            <div class="contact-info">
+                <div class="qr-placeholder">微信二维码</div>
+                <div>📞 19037072241</div>
+            </div>
+        </div>
+
+        <!-- 01. 公司介绍 -->
+        <div class="slide">
+            <div class="slide-number">01</div>
+            <h2 class="slide-title">
+                <span class="title-icon">🏢</span>
+                公司介绍
+            </h2>
+            
+            <div class="content-grid">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span>💡</span>
+                        创始理念
+                    </div>
+                    <p><strong>用最少的钱，做出最美的效果</strong></p>
+                    <p>小鹿派对由拥有4年宴会设计经验的创始人创立，专注于解决小预算客户也能获得高质量、富有设计感派对布置的需求。</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span>🎯</span>
+                        核心定位
+                    </div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>🎂 宝宝宴 & 生日宴</li>
+                        <li>💍 订婚宴 & 求婚布置</li>
+                        <li>🏡 婚房布置</li>
+                        <li>🏢 商业活动 & 开业布置</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-section" style="margin-top: 30px; text-align: center;">
+                <div class="section-title" style="justify-content: center;">
+                    <span>📊</span>
+                    区域影响力
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #667eea;">500+</div>
+                        <div>服务客户</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #667eea;">95%+</div>
+                        <div>客户满意度</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #667eea;">河南</div>
+                        <div>立足区域</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02. 产品与服务介绍 -->
+        <div class="slide">
+            <div class="slide-number">02</div>
+            <h2 class="slide-title">
+                <span class="title-icon">🎁</span>
+                产品与服务介绍
+            </h2>
+            
+            <div class="content-grid">
+                <div class="content-section">
+                    <div class="section-title">
+                        <span>🎨</span>
+                        服务类型
+                    </div>
+                    <p><strong>派对策划 / 设计 / 落地布置 / 道具租赁</strong></p>
+                    <p><strong>优势特色：</strong>色彩空间美学 + 一站式解决方案 + 高性价比定制</p>
+                    <p><strong>服务形式：</strong>线上咨询 + 线下场地布置 + 伴手礼延展</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="section-title">
+                        <span>➕</span>
+                        增值服务
+                    </div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>📸 摄影摄像</li>
+                        <li>🎤 MC主持</li>
+                        <li>🍰 定制蛋糕</li>
+                        <li>📱 寄拍服务</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #667eea; font-size: 1.5rem;">合作流程</h3>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">💬</div>
+                        <div>沟通需求</div>
+                    </div>
+                    <div class="process-step">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">🎨</div>
+                        <div>确定风格</div>
+                    </div>
+                    <div class="process-step">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">📋</div>
+                        <div>方案报价</div>
+                    </div>
+                    <div class="process-step">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">✍️</div>
+                        <div>签约</div>
+                    </div>
+                    <div class="process-step">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">🚀</div>
+                        <div>执行落地</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03. 客户痛点 vs 解决方案 -->
+        <div class="slide">
+            <div class="slide-number">03</div>
+            <h2 class="slide-title">
+                <span class="title-icon">🧠</span>
+                客户痛点 vs 我们的解决方案
+            </h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>客户痛点</th>
+                        <th>我们的解决方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">😰</span>
+                                <span>担心审美不在线</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">🎯</span>
+                                <span>提供3D模拟图 + 实景还原图对比</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">💸</span>
+                                <span>预算有限制约</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">💡</span>
+                                <span>高中低套餐灵活组合，按需增减</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">🤔</span>
+                                <span>不懂操作流程</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">🤝</span>
+                                <span>一对一陪伴式服务，确保顺畅无压力</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">🏠</span>
+                                <span>场地条件限制</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">🎪</span>
+                                <span>适配家庭、餐厅、酒店等多场景</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 04. 核心竞争力 -->
+        <div class="slide">
+            <div class="slide-number">04</div>
+            <h2 class="slide-title">
+                <span class="title-icon">🚀</span>
+                核心竞争力
+            </h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎨</div>
+                    <div class="advantage-title">审美优势</div>
+                    <div>高级调色 + 空间布局美学<br>远超市面快装型产品</div>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">👥</div>
+                    <div class="advantage-title">团队优势</div>
+                    <div>全员具备布景/艺术<br>设计相关背景</div>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🏪</div>
+                    <div class="advantage-title">资源优势</div>
+                    <div>自有道具仓 + 合作摄影<br>蛋糕/主持人资源</div>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">✅</div>
+                    <div class="advantage-title">交付保障</div>
+                    <div>服务流程标准化<br>每场活动拍摄留存</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 05. 案例展示 -->
+        <div class="slide">
+            <div class="slide-number">05</div>
+            <h2 class="slide-title">
+                <span class="title-icon">📚</span>
+                案例展示
+            </h2>
+            
+            <div class="case-gallery">
+                <div class="case-item">
+                    <div class="case-image">👶</div>
+                    <div class="case-info">
+                        <div class="case-title">梦幻宝宝宴</div>
+                        <div class="case-details">
+                            <strong>主题：</strong>粉色梦幻系<br>
+                            <strong>场地：</strong>家庭客厅<br>
+                            <strong>客户评价：</strong>"效果超出预期，宝宝很开心！"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-item">
+                    <div class="case-image">💍</div>
+                    <div class="case-info">
+                        <div class="case-title">浪漫订婚宴</div>
+                        <div class="case-details">
+                            <strong>主题：</strong>多巴胺风格<br>
+                            <strong>场地：</strong>酒店宴会厅<br>
+                            <strong>客户评价：</strong>"朋友们都说太美了！"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-item">
+                    <div class="case-image">🎂</div>
+                    <div class="case-info">
+                        <div class="case-title">生日派对</div>
+                        <div class="case-details">
+                            <strong>主题：</strong>卡通主题<br>
+                            <strong>场地：</strong>小型餐厅<br>
+                            <strong>客户评价：</strong>"孩子超级喜欢这个布置！"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-item">
+                    <div class="case-image">🏢</div>
+                    <div class="case-info">
+                        <div class="case-title">开业庆典</div>
+                        <div class="case-details">
+                            <strong>主题：</strong>商务简约<br>
+                            <strong>场地：</strong>商业空间<br>
+                            <strong>客户评价：</strong>"专业又有创意！"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-item">
+                    <div class="case-image">💕</div>
+                    <div class="case-info">
+                        <div class="case-title">求婚布置</div>
+                        <div class="case-details">
+                            <strong>主题：</strong>浪漫星空<br>
+                            <strong>场地：</strong>户外草坪<br>
+                            <strong>客户评价：</strong>"她哭得稀里哗啦，成功了！"
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-item">
+                    <div class="case-image">🏡</div>
+                    <div class="case-info">
+                        <div class="case-title">婚房布置</div>
+                        <div class="case-details">
+                            <strong>主题：</strong>温馨简约<br>
+                            <strong>场地：</strong>新房卧室<br>
+                            <strong>客户评价：</strong>"温馨浪漫，很有仪式感！"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 06. 合作流程 + 售后服务 -->
+        <div class="slide">
+            <div class="slide-number">06</div>
+            <h2 class="slide-title">
+                <span class="title-icon">🧲</span>
+                合作流程 + 售后服务
+            </h2>
+            
+            <div class="process-flow" style="margin-bottom: 40px;">
+                <div class="process-step">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">💬</div>
+                    <div>沟通需求</div>
+                </div>
+                <div class="process-step">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">✨</div>
+                    <div>风格确认</div>
+                </div>
+                <div class="process-step">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">💰</div>
+                    <div>报价</div>
+                </div>
+                <div class="process-step">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">📝</div>
+                    <div>签约</div>
+                </div>
+                <div class="process-step">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">🎯</div>
+                    <div>落地执行</div>
+                </div>
+                <div class="process-step">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">📋</div>
+                    <div>售后反馈</div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <div class="section-title">
+                    <span>🛡️</span>
+                    售后保障
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 10px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📅</div>
+                        <div><strong>活动前7天</strong><br>可免费调整方案</div>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #ff9a9e, #fecfef); color: white; border-radius: 10px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">👨‍💼</div>
+                        <div><strong>活动当天</strong><br>1v1执行负责人</div>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: white
